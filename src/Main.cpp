@@ -27,7 +27,6 @@ int main(int argc, char **argv) {
 
     Sound warning;
     warning.setBuffer(warning_sound);
-    warning.setLoop(true);
 
     Clock c;
 
@@ -42,11 +41,13 @@ int main(int argc, char **argv) {
         // With the audio
         cout << "Warning: You have " << bt * .1 << "min left until "
         "total audio irritation.\n\n";
+        warning.setLoop(false);
         warning.play();
         sleep(seconds(bt*60-c.getElapsedTime().asSeconds()));
         warning.pause();
 
         // HAHAHA
+        warning.setLoop(true);
         warning.play();
 
         sleep(seconds(bl*60));
