@@ -1,2 +1,4 @@
 *.o
 screen_rest
+build/
+*.cache

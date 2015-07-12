@@ -5,10 +5,11 @@ K minutes of music with a warning before the last 10% of the N minutes. All on t
 If you choose to heed the warning, that's fine. There is nothing stopping you from continuing on
 your computing session, or just <kbd>Ctrl</kbd>-<kbd>C</kbd> to stop this program.
 
+
 ### Usage
 
 ```
-./screen_rest [-t|--break-time N] [-l|--break-length K]
+./screen_rest [-t|--break-time N] [-l|--break-length K] [-v|--verbose]
 
 -t
 --break-time N
@@ -19,4 +20,30 @@ your computing session, or just <kbd>Ctrl</kbd>-<kbd>C</kbd> to stop this progra
 --break-length K
     The interval of time in minutes that you want your break to last.
     Default is 5.
+
+-v
+--verbose
+    If you want it to run in terminal blocking (with status text), have this
+    option.
+
+-h
+--help
+    Displays the help screen.
+```
+
+
+### Building
+
+To build, simply do:
+
+```
+# To rebuild the config.h.in and ./configure files if they don't work
+autoheader
+autoconf
+
+# The normal building process
+mkdir build
+cd build
+../configure
+make
 ```

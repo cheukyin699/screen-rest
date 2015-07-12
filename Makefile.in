@@ -1,11 +1,11 @@
-CXX := g++
-CXXFLAGS := -c -Os
-LD := g++
+CXX := @CXX@
+CXXFLAGS := -c -Os -I.
+LD := $(CXX)
 LDFLAGS := -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio -Os
 
 EXE := screen_rest
 OBJ := obj/Main.o
-SRC := src/Main.cpp
+SRC := @srcdir@/src/Main.cpp
 
 .PHONY: all clean
 
@@ -20,8 +20,5 @@ $(EXE): obj/ $(OBJ)
 obj/:
 	mkdir $@
 
-obj/%.o: src/%.cpp src/%.h
-	$(CXX) $(CXXFLAGS) -o $@ $<
-
-obj/%.o: src/%.cpp
+obj/%.o: @srcdir@/src/%.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
