@@ -14,7 +14,7 @@ your computing session, or just <kbd>Ctrl</kbd>-<kbd>C</kbd> to stop this progra
 -t
 --break-time N
     The interval of time in minutes that you want to take a break.
-    Default is 60.
+    Default is 55.
 
 -l
 --break-length K

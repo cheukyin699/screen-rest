@@ -10,7 +10,7 @@ using namespace sf;
 
 int main(int argc, char **argv) {
     bool verbose = false;
-    double bt = 60, bl = 5;
+    double bt = 55, bl = 5;
 
     // Argument parsing
     for (unsigned i=0; i<argc; i++) {
@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
                 << "Usage:\n" "./screen_rest [-t|--break-time N] [-l|--break-length K] [-v|--verbose]\n\n"
                     "-t\n--break-time N\n"
                     "The interval of time in minutes that you want to take a break.\n"
-                    "Default is 60.\n\n"
+                    "Default is 55.\n\n"
                     "-l\n--break-length K\n"
                     "The interval of time in minutes that you want your break to last.\n"
                     "Default is 5.\n\n"
