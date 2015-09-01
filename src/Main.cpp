@@ -14,28 +14,28 @@ int main(int argc, char **argv) {
 
     // Argument parsing
     for (unsigned i=0; i<argc; i++) {
-        if (strcmp(argv[i], "-t")==0 || strcmp(argv[i], "--break-time")==0) {
+        if (strcmp(argv[i], "-t") == 0 || strcmp(argv[i], "--break-time") == 0) {
             if (i+1 >= argc) continue;
             bt = atof(argv[++i]);
-        } else if (strcmp(argv[i], "-l")==0 || strcmp(argv[i], "--break-length")==0) {
+        } else if (strcmp(argv[i], "-l") == 0 || strcmp(argv[i], "--break-length") == 0) {
             if (i+1 >= argc) continue;
             bl = atof(argv[++i]);
-        } else if (strcmp(argv[i], "-v")==0 || strcmp(argv[i], "--verbose")==0) {
+        } else if (strcmp(argv[i], "-v") == 0 || strcmp(argv[i], "--verbose") == 0) {
             verbose = true;
-        } else if (strcmp(argv[i], "-h")==0 || strcmp(argv[i], "--help")==0) {
-            cout << PACKAGE_STRING << endl << "Please report any bugs to: " << PACKAGE_URL << "\n\n"
-                << "Usage:\n" "./screen_rest [-t|--break-time N] [-l|--break-length K] [-v|--verbose]\n\n"
-                    "-t\n--break-time N\n"
-                    "The interval of time in minutes that you want to take a break.\n"
-                    "Default is 55.\n\n"
-                    "-l\n--break-length K\n"
-                    "The interval of time in minutes that you want your break to last.\n"
-                    "Default is 5.\n\n"
-                    "-v\n--verbose\n"
-                    "If you want it to run in terminal blocking (with status text), have this\n"
-                    "option.\n\n"
-                    "-h\n--help\n"
-                    "Displays this help screen\n";
+        } else if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
+            cout << PACKAGE_STRING << endl
+                << "Please report any bugs to: <" << PACKAGE_URL << ">\n\n"
+                << argv[0] << " [options]\n\n"
+                   "Options:\n"
+                   "  -t N,\n"
+                   "  --break-time N       The interval of time in minutes that you want to\n"
+                   "                       take a break. Default is 55.\n\n"
+                   "  -l N,\n"
+                   "  --break-length K     The interval of time in minutes that you want your\n"
+                   "                       break to last. Default is 5.\n\n"
+                   "  -v, --verbose        If you want it to run in terminal with status text,\n"
+                   "                       have this option.\n\n"
+                   "  -h, --help           Displays this help dialog.\n";
             return 0;
         }
     }
