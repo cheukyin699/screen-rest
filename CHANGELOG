@@ -1,0 +1,36 @@
+Change Log
+**********
+
+All notable changes to this project will be documented in this file. This
+project adheres to Semantic Versioning.
+
+
+Unreleased - YYYY-MM-DD
+=======================
+
+
+
+v0.1.1 - 2015-09-01
+===================
+
+Building process now uses autoconf instead of your typical Makefile.
+
+Added
+-----
+- verbose option to output status
+
+Changed
+-------
+- default of 55 minutes to 5 minutes rest
+- reformatted help dialog
+
+
+v0.1.0 - 2015-07-06
+===================
+
+The initial release.
+
+Added
+-----
+- default of 60 minutes to 5 minutes rest
+
