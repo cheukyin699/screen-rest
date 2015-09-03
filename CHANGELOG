@@ -11,6 +11,8 @@ Unreleased - YYYY-MM-DD
 Added
 -----
 - GPL v3.0
+- command-line specified audio file (no need to recompile project)
+- feedback on invalid options
 
 
 v0.1.1 - 2015-09-01

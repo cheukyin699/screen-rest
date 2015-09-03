@@ -14,6 +14,7 @@
 
 #include <cstring>
 #include <iostream>
+#include <string>
 
 #include <SFML/Audio.hpp>
 
@@ -25,18 +26,35 @@ using namespace sf;
 int main(int argc, char **argv) {
     bool verbose = false;
     double bt = 55, bl = 5;
+    string audio_file = "res/music.wav";
 
     // Argument parsing
     for (unsigned i=0; i<argc; i++) {
         if (strcmp(argv[i], "-t") == 0 || strcmp(argv[i], "--break-time") == 0) {
-            if (i+1 >= argc) continue;
-            bt = atof(argv[++i]);
-        } else if (strcmp(argv[i], "-l") == 0 || strcmp(argv[i], "--break-length") == 0) {
-            if (i+1 >= argc) continue;
-            bl = atof(argv[++i]);
-        } else if (strcmp(argv[i], "-v") == 0 || strcmp(argv[i], "--verbose") == 0) {
+            if (++i >= argc) {
+                cerr << "Error: expected an integer.\n";
+                continue;
+            }
+            bt = atof(argv[i]);
+        }
+        else if (strcmp(argv[i], "-l") == 0 || strcmp(argv[i], "--break-length") == 0) {
+            if (++i >= argc) {
+                cerr << "Error: expected an integer.\n";
+                continue;
+            }
+            bl = atof(argv[i]);
+        }
+        else if (strcmp(argv[i], "-a") == 0 || strcmp(argv[i], "--audio") == 0) {
+            if (++i >= argc) {
+                cerr << "Warning: expected audio file, using default `res/music.wav'.\n";
+                continue;
+            }
+            audio_file = argv[i];
+        }
+        else if (strcmp(argv[i], "-v") == 0 || strcmp(argv[i], "--verbose") == 0) {
             verbose = true;
-        } else if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
+        }
+        else if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
             cout << PACKAGE_STRING << endl
                 << "Please report any bugs to: <" << PACKAGE_URL << ">\n\n"
                 << argv[0] << " [options]\n\n"
@@ -47,6 +65,8 @@ int main(int argc, char **argv) {
                    "  -l N,\n"
                    "  --break-length K     The interval of time in minutes that you want your\n"
                    "                       break to last. Default is 5.\n\n"
+                   "  -a <file>,\n"
+                   "  --audio <file>       To specify another audio file other than the default.\n\n"
                    "  -v, --verbose        If you want it to run in terminal with status text,\n"
                    "                       have this option.\n\n"
                    "  -h, --help           Displays this help dialog.\n";
@@ -55,7 +75,7 @@ int main(int argc, char **argv) {
     }
 
     SoundBuffer warning_sound;
-    if (!warning_sound.loadFromFile("res/music.wav")) {
+    if (!warning_sound.loadFromFile(audio_file.c_str())) {
         return -1;
     }
 
