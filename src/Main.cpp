@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
     string audio_file = "res/music.wav";
 
     // Argument parsing
-    for (unsigned i=0; i<argc; i++) {
+    for (unsigned i = 0; i < argc; i++) {
         if (strcmp(argv[i], "-t") == 0 || strcmp(argv[i], "--break-time") == 0) {
             if (++i >= argc) {
                 cerr << "Error: expected an integer.\n";
@@ -91,7 +91,7 @@ int main(int argc, char **argv) {
         c.restart();
 
         if (verbose) {
-        sleep(seconds(bt*60*.9-c.getElapsedTime().asSeconds()));
+        sleep(seconds(bt * 60 * .9 - c.getElapsedTime().asSeconds()));
 
         // Alert the user as a warning
         // With the audio
@@ -99,17 +99,17 @@ int main(int argc, char **argv) {
         "total audio irritation.\n\n";
         warning.setLoop(false);
         warning.play();
-        sleep(seconds(bt*60-c.getElapsedTime().asSeconds()));
+        sleep(seconds(bt * 60 - c.getElapsedTime().asSeconds()));
         warning.pause();
         } else {
-            sleep(seconds(bt*60));
+            sleep(seconds(bt * 60));
         }
 
         // HAHAHA
         warning.setLoop(true);
         warning.play();
 
-        sleep(seconds(bl*60));
+        sleep(seconds(bl * 60));
 
         warning.pause();
 
